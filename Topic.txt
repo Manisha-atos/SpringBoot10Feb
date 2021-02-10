@@ -1,0 +1,384 @@
+5 days 
+attendance 100%  --- 90%
+assessment -- 80% , 3 attempt 
+Day 1:
+programming basic
+C, C++
+Java  --oop
+
+c,c++.
+platform independent .
+.c -->compiler /interpreter MLL 
+
+.c--->.obj--->exec
+.obj --
+
+.java-->compiler--->intermediate code/byte.class(hexa decimal)  --complie
+.class-->interpreter--->native MLL (exe O/P)
+
+interpreter --- class loader --->Bytecode verifier(Byte)--->interpreter ---
+	   	
+
+.java
+|
+.class Windows  (Hexa decimal)   ---linux 	--mac
+|
+class loader
+|
+Bytecode veri
+|
+interpreter			interpreter	interpreter
+|
+Native MLL
+|
+O/p
+
+JDK --->Java Devlop
+
+
+tools		class
+javac 		
+java
+jar
+rmi
+appletviwer
+javadoc
+java h
+
+JRE
+JVM --- execution 
+
+conditional
+loops
+jump statement label
+label 
+
+OOP
+class & object 
+polymorphism   complie time   and Run time
+	   fun c, constr ,operator  overidding 
+inheritance
+assocication 
+
+Data Type
+
+Primitive 		Non -primite
+text --char , String 
+Number-- byte , int , short, long --- int 
+decimal -- float ,double ---  double
+
+
+types of variable
+local-- block  --explicit 
+instance --class -- implicitly
+static -- class no
+
+Assignment 1:
+calculate the Net salary of an employee
+bsal=1000
+hra=12%bsal
+da=15%bsal
+it=7%bsal
+pf=5%bsal
+
+Nsal=Bsal=hra+da-it-pf;
+Assignment 2:
+ATM appication 
+1.deposit
+2.withdraw
+3.check balance
+4.Exit
+Assumtion -opening bal =10000
+1---2000
+12000
+2 ----2000  ---8000
+
+Assignment 3
+ATM appication continious exec
+1.deposit
+2.withdraw
+3.check balance
+4.Exit
+Assumtion -opening bal =10000
+1---2000
+12000
+2 ----2000  ---8000
+
+Overriding ???
+1. inheritance
+2. same name & same signature
+
+A
+|
+B
+|
+C
+
+Day 2:
+Assignment 1:VMI
+
+		Employee  --show
+
+PEmp	show			CEmp
+sal,comm			hr,rate
+
+overriding
+
+Assignment 2:
+same question with super keyword.
+
+Assignment 3:
+instance initilizer in Java
+covaraint return type
+interface with static and default method.
+
+Assignment 4:
+Loan calculator
+interface ---- rate of inter interface , abstract class 
+1.car 
+2.home
+3.personal
+4.gold
+
+
+
+super  -- constr ,method,attribute
+this
+final  -- method, class, attribute constant 
+static  --- class scope all object ,class.method, block static 
+object 
+static -- class 
+
+attribute
+method
+block
+----------------------------
+interface & abstract classes.
+
+customer---- requirement what they want ----atos java , cam anguler, pers  .net  BL 
+
+interface rule ,contract ,what --- class implement 
+AWT 
+click()  doubleclick()  dbclick() btnClick()
+rule --- dblClick()
+
+
+interface --- rules --- implemented by the class
+
+//public 
+interface i1
+{
+int x;/// final static
+double area();// abstract --- prototype , no sig
+}
+
+multiple inheritance --- interface 
+
+inheritance interface 
+
+----------------------------------------
+
+Day 3:
+d:\manisha\topic.txt
+d:\shreay\topic.txt
+
+p1--A
+p2--A
+modifers
+-default  with in the same pkg
+-private -- with in the same class
+-public---  differ pkgs
+-protected --- differ pkgs , inheritance
+
+
+Error -- 
+compile error
+logic error --- a=b;b=a;
+runtime error-- execption handling
+try  catch finally
+nested try catch 
+throw 
+throws--- used to handle checked excption 
+cactch(|||)
+ARM
+Assertion --- 
+
+OTP  --- 3 
+
+exception handling & assertion.
+
+Exception 		Error
+
+		Exception
+
+
+(checked exce)			(unchec)
+FileNotFoundExc				RunTimeException
+IOExc					ArrayIndecOutOfBoundsEx
+Intrr
+ClassNot					Arith	
+					NullPointer
+
+collection: dynamic 
+array [10]--homogen hetro static 
+
+		collection
+
+List					Set
+
+ArrayList				HastSet		SortedSet
+LinkedList						TreeSet	
+
+Map--- interface
+key , value 
+
+
+Collections.sort()--- sort the element.
+natural ordering 
+comparable()  java.lang   --compareTo  --- int a,b ===0,+ve ,-ve
+comparator()  java.util   
+
+
+
+
+
+Day 4:
+
+FE --Driver-- DB
+JDBC--
+
+ODBC---c lang ,  plateform 
+java.sql
+
+4 drivers
+jdbc --odbc ---- 
+native driver client --JDBC
+network protocal client -->middle ware -->, costly
+thin driver
+
+Oracle ---
+SqlServer----
+MySQL----
+
+Driver ==class.forName("") 
+Connection-- DriverManager.getConnection (url,uname,pwd)
+Statement, preparedstatement, callablestatment ---- executing SQL
+ResultSet ---
+close connetion
+
+Stat
+
+PreparedSt
+
+
+callableStat-- procedure
+
+executeQuery--- select --RS
+executeUpdate-- int 
+execute --- boolean , true ---select ---RS , false DML  int 
+  Employee Management System.
+Assignment 1:
+Employee 
+EmployeeInterface  displayAll, add,update,dele,search,displayId;
+EmployeeImple
+ClientApp
+menu based 
+
+Assignment 2:
+JDBC 
+exeception ---- 2000, 500 
+
+statement  static , dynamic query
+
+preparted 
+
+static , dynamic simple , bind varible , recompile the query
+
+
+compile  syntax execuation plan
+
+select * from emp where empno=&eno;
+
+100 compile , execution plan ,
+down 
+
+prepared statment
+
+callable stata-- stored 
+ 1  , 1 execution 
+
+create or replace procedure pr1( id number ,name out varchar2,j out varchar2)
+as
+begin
+select ename,job into name,j from emp where empno=id;
+end pr1;
+
+day 5:
+Testing  JUnit.
+
+Frameworks
+
+JUnit--- java application 
+NUnit --.net application
+@Test--- test method
+@Before
+@After
+@BeforeClass
+@AfterClass
+@Order
+@Runnable
+@Parameterized
+Get Started with Lightning Experience
+Decide When Lightning Experience Is Right for Your Company.
+
+10% 
+
+please 12 feb 
+please 19 feb
+
+
+961
+975
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
