@@ -1,0 +1,879 @@
+﻿
+
+Course Details
+===============
+Day1 :Spring Basics
+             1.Dependency Injection,
+             2.Inversion Of Control
+             3.Spring Bean Life Cycle
+             4.Auto Wiring (XML + Annoataion)
+ 
+       Types Of Injection
+       ===============
+         1.setter injections
+         2.constructor injection
+         3.interface injection    
+
+Day2 :Spring AOP,Spring Web MVC ,Spring Boot Basics
+Day3 :Spring Boot
+Day4 :Spring Boot
+Day5 :Spring Boot
+
+====================================================================================
+
+====
+Day1
+====
+Java SE  ->Core Java -> Stand alone applications  
+Java EE  ->Advance Java-> Enterprise/Business application
+Java ME  -> Mobile Applications
+
+
+
+Q.What is enterprise ? 
+     Any business orginization is known as enterprise.
+
+    Enterprises do the business by providing services
+  
+
+Ex.    Colleges   ->Online Admission Form,
+       Hotels     ->Online Order,Online Room booking
+       Banks      ->Witdraw,Deposit,Transfer Fund
+       LICs       ->Online Premium pay 
+       Hospital   ->Online Appointement
+       Transoprt Companies ->booking ticket,cancelling tickets
+
+
+	   
+	   1.Money
+	   2.Man Power(Data...)
+	   
+	   
+	   1.Business to Customer application (ATM)
+	   2.Business to Business  application
+	   
+	   
+	   
+Enteprise applications comprises of Four Layers
+=========================================
+===============================================================================================================
+Presentation Layer                 Service Layer               Data Access Layer                   Data Layer
+===============================================================================================================
+
+Data Layer
+==========
+    RDBMS -MySQL,Oracle
+    NOSQL-Mongo DB,DynomoDB
+    Text File
+    Excel File
+    XML File
+    Collections
+    Another Business application
+	
+	
+    
+Data Access Layer
+===============
+jdbc/hibernate/jpa/ jdbcTemplate,hibernateTemplate,JpaTemplate,JPARepository
+third party Jar Files
+java.io
+jdbc
+jaxp
+java.util
+servlet api(response.sendRedirect())  (RestTmeplate)
+
+
+Service Layer :Programatical implementation of business rules
+=============
+Java Bean
+Enterprise Java Bean
+Spring Bean
+
+Presentation Layer
+================
+(Static+Dynamic)
+
+Client Side
+=========
+HTML,
+JS
+CSS
+jQuery
+Angular JS
+Angular
+Boot strap
+React
+
+Server Side
+==========
+Servlet
+JSP
+
+
+
+Model
+View
+Controller
+
+
+MVC2/JSP model 2
+================
+Struts1.x
+JSF1.x, JSF 2.x 
+Spring Web MVC
+
+JSP Model3
+===========
+Struts2.x
+                        Model                View                       Controller
+
+JSP Model 1             Java Bean             JSP                         JSP  
+
+JSP Model 2             Java Bean             JSP                         Servlet 
+
+JSP Model 3             Java Bean             JSP                         Filter
+
+JSP Model 4             Java Bean             JSP                         Tag Handler
+
+
+
+
+
+
+Employee Management System  (Employee)
+===================================
+Employee
+            employeeId (auto generated)
+            fname
+            lname
+            salary 
+            email (auto genearted)
+            doj   (auto genrated)
+            mobile
+            pan          
+
+			
+
+Data Source :Collection
+                           Map
+
+
+(CRUD operation)
+C -Create
+R -Retrieve
+U -UPDATE
+D -DELET
+
+Restful APIS
+==============
+http://localhost:8080/ems-web-mvc/rest/employees   :GET => GET ALL EMPLOYEES
+http://localhost:8080/ems-web-mvc/rest/employees/1 :GET => GET EMPLOYEE WITH ID 101
+http://localhost:8080/ems-web-mvc/rest/employees/1 :DELETE => DELETE EMPLOYEE WITH ID 101
+http://localhost:8080/ems-web-mvc/rest/employees/1 :PUT => UPDATE EMPLOYEE WITH ID 101
+http://localhost:8080/ems-web-mvc/rest/employees   :POST => ADD EMPLOYEE 
+ 
+
+
+boolean addEmployee(Employee employee);
+
+Employee findEmployee(int employeId);
+
+boolean deleteEmployee(int employeeId);
+
+boolean updateEmployee(Employee employee);
+
+List<Employee> findAllEmployees();
+
+=======================================================================
+
+
+EmsApp
+       ===>
+              EmployeeService
+                            ===> 
+                                EmployeeDao
+                                            MapEmployeeDaoImpl
+                                                                             ====>EmployeeMap                  EmployeeServiceImpl                   OracleEmployeeDaoImpl
+                                                                             ====>EmployeeMap                 
+      EmployeeServicewImpl1                                                                                                                          EmployeeJPAReposiotry   
+        
+
+
+
+
+BankApp  (Account)
+===================================
+Account
+            accno (auto generated)
+            fname
+            lname
+            salary 
+            email 
+            doj  (auto genrated)
+            mobile
+            pan          
+
+BankApp
+           ===>
+              AccountService
+                                     ===> 
+                                     AccountDao
+                                                MapAccountDaoImpl
+                                                                  ====>AccountMap
+                                                                                                   Map 
+        
+
+
+
+Spring ->(Inversion Of Control,Dependency Injection)
+
+
+1.Install Spring Software (jar files) in class path
+
+2.Create a Spring Container by passing spring config file
+                                                       
+                                                         BeanFactory  (I)
+                                                                 |
+                                                         ApplicationContext (I)
+                                                                |
+                                                         ServletWebApplicationContext  (I)
+ 
+ClassPathXMLApplicationContext
+AnnotationConfigApplicationContext
+
+
+
+ApplicationContext c=new ClassPathXMLApplicationContext("beans.xml");
+
+
+
+Spring Bean Life Cycle
+=====================
+1.Loading
+2.Instantiation
+3.Dependency Injection
+4.Service
+5.Destruction
+
+Spring Bean Scopes => singletone|prototype|request|session
+
+
+Wiring : Associating the beans with each other
+========
+
+EmsApp     EmployeeService   EmployeeDao
+
+
+
+Auto Wiring
+=============
+It is a mechanism of delegating the responsibility of assocaiating the beans to spring container.
+
+autowire= no|byName|byType|constructor
+
+
+
+
+
+Spring Application using annoations
+============================
+
+Any class which is declared with below annoatioans is registered as Spring Bean
+
+
+                                       @Component
+
+
+@Controller                           @Service                              @Respository
+
+
+====================================================================================
+======
+Day2
+======
+
+Restul API for Employee resources
+
+http://localhost:1111/ems-spring-app-v4/rest/employees         GET -> GET ALL EMPLOYEES
+http://localhost:1111/ems-spring-app-v4/rest/employees/101  GET -> GET  EMPLOYEE WITH ID 101
+http://localhost:1111/ems-spring-app-v4/rest/employees/101  DELETE-> DELETE  EMPLOYEE WITH ID 101
+http://localhost:1111/ems-spring-app-v4/rest/employees/101  PUT>        UPDATE  EMPLOYEE WITH ID 101
+http://localhost:1111/ems-spring-app-v4/rest/employees        POST-> ADD EMPLOYEE 
+
+
+
+JSTL (JSP standard tag library)
+============================
+1.Core Tags
+2.Formating Tags
+3.SQL tags
+4.XML tags
+5.Functional Tags
+
+
+
+@Controller
+class HelloController{
+
+
+@RequestMapping("/today")
+
+public   @ResponseBody  String hello(){
+return "Today is :"+new Date();
+}
+
+}
+
+@RestController  => @Controller and @ResponseBody
+
+@RequestBody  => Client ->Server   => JSON->Java  =>Unmarshling
+
+@ResponseBody =>Server =>Client  => Java ->JSON =>Marshling
+
+
+
+ServletWebApplicationContext    VS RootWebApplcationContext
+
+
+ServletWebApplicationContext will be created per Dispatcher Servlet
+
+RootWebApplcationContext will created per web application
+
+
+
+
+
+Day3
+====
+
+What is Spring Boot?
+======================
+Spring Boot is a brand new framework from the team at Pivotal,
+designed to simplify the bootstrapping and development of a new Spring application.
+The framework takes an opinionated approach to configuration, freeing developers from the need to define boilerplate configuration.
+
+
+
+Step 1 :Install Apache Maven (i.e Extract Apche maven zip)
+
+Stpe 2: do the below changes in settings.xml (c:\apache-maven-3.5.0\conf\settings.xml)
+
+
+<localRepository>d:\repository</localRepository>
+ 
+<proxies>
+<proxy>
+      <id>HTTP</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+	  <nonProxyHosts>local.net</nonProxyHosts>
+ </proxy>
+	
+	<proxy>
+      <id>HTTPS</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+	  <nonProxyHosts>local.net</nonProxyHosts>
+    </proxy>
+	
+<proxy>
+      <id>FTP</id>
+      <active>true</active>
+      <protocol>ftp</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+	  <nonProxyHosts>local.net</nonProxyHosts>
+    </proxy>
+</proxies>
+
+Step 3: set environment variable
+
+          M2_HOME = C:\apache-maven-3.5.0
+          path = C:\apache-maven-3.5.0\bin 
+
+Step 4: Configure Maven in STS
+
+         Windows->Preferences->Maven->Installations-> Add 
+          => Instalation Type=>External
+             Installation Home =>C:\apache-maven-3.5.0
+             
+        Users setting =>
+              change location of settings.xml to
+                      (C:\apache-maven-3.5.0\conf\settings.xml)
+         
+
+Step 5 :
+
+     Open  =>  https://start.spring.io/
+
+     Generate Maven Project with necessary deepndencies (Web,Devtools...etc)
+
+     Extract the maven project and import maven project into STS
+ 
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+
+
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<scope>runtime</scope>
+	</dependency>
+
+
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-test</artifactId>
+	<scope>test</scope>
+	</dependency>
+
+<!-- JPA Reposiotry -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<!-- h2 database -->
+<dependency>
+<groupId>com.h2database</groupId>
+<artifactId>h2</artifactId>
+<scope>runtime</scope>
+</dependency> 
+
+
+<!-- To Send JSP Response -->
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-tomcat</artifactId>
+</dependency>
+
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>jstl</artifactId>
+</dependency>
+
+
+    CRUDRepository (I)
+          |
+          |
+   PagingAndSortingRepository (I)
+          |
+          |
+   JPAReposiotry (I)    
+
+
+ 
+	 
+Spring Boot Actuators
+=======================
+What is an Actuator?
+In essence, Actuator brings production-ready features to our application.
+
+Monitoring our app, gathering metrics, understanding traffic or the state of our 
+database becomes trivial with this dependency.
+
+The main benefit of this library is that we can get production grade tools without having
+to actually implement these features ourselves.
+
+Actuator is mainly used to expose operational information about the running application
+ – health, metrics, info, dump, env, etc. 
+It uses HTTP endpoints or JMX beans to enable us to interact with it.
+
+Once this dependency is on the classpath several endpoints are available for 
+us out of the box. As with most Spring modules, we can easily configure or extend it in many ways.
+
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+ 
+ 
+
+application.properties
+=========================
+management.endpoints.web.exposure.include=*
+security.basic.enable=false   
+management.security.enabled=false  
+  
+ 
+
+ 
+EmsApp
+       ===>
+          EmployeeService
+                      ===> 
+                                  EmployeeDao
+          EmployeeServiceImpl     MapEmployeeDaoImpl
+                                                          ====>EmployeeMap                  EmployeeServiceImpl                   OracleEmployeeDaoImpl
+                                  
+								  
+         EmployeeServiceReposiotryImpl     EmployeeRepository
+
+                                                          H2 database						   
+						   								  
+														  
+														  
+ 
+ 
+ 
+ 
+ 
+	 
+
+    CRUDRepository (I)
+          |
+          |
+   PagingAndSortingRepository (I)
+          |
+          |
+   JPAReposiotry (I)    
+
+
+
+NO SQL Databases
+==================
+
+C -Consistancy
+A -Avaialability
+P -Partition tolernace
+
+MonogDB - Document oriented database (JSON)
+Casentra
+Hbase
+DynaomoDB
+   
+   
+   
+   
+Employee :id ,name,salary
+
+Relational data
+Employee
+==================================
+Id        Name    Salary
+==================================
+101      Pradeep  120000
+===================================
+
+Employee e=new Employee();
+
+e.setId(101);
+e.setName("Pradeep");
+es.setSalary(120000);
+
+ORM =>
+
+{id:101,name:'Pradeep Chinchole',salary:120000}
+
+==========================
+Spring Boot Mongo DB
+========================
+
+===========================================
+RDBMS                         MongoDB
+==========================================
+Database                      Database  
+
+table                         collection
+
+rows/tupples                  document
+
+columns                        fields
+
+primary key                   _id (auto gernated by MongoDB server)
+     
+Joins                         Embeded documents 
+
+
+
+Step1 :Extart Mongo DB in d:\
+
+Step2 : create a folder mydata in d:\mydata
+
+Step 3:start a mongodb server 
+
+Default  :
+
+D:\MongoDB\Server\3.2\bin>mongod
+
+D:\MongoDB\Server\3.2\bin>mongod --dbpath c:\data\db
+
+Custom path
+============
+          
+D:\MongoDB\Server\3.2\bin>mongod --dbpath d:\mydata  <enter>
+
+Step 4:start a mongodb client
+ 
+D:\MongoDB\Server\3.2\bin>mongo  <enter>
+
+
+
+db
+
+show dbs
+
+db.help();
+
+use school
+
+db.createCollection("students");
+
+db.students.insert({name:'ram',age:34});
+
+db.students.insert({name:'rahim',age:34});
+
+db.students.insert({name:'david',age:34,area:'warje'});
+
+db.teachers.insert({name:'Pradeep',subject:['Java','Spring','Spring Boot','Angular']});
+
+
+db.students.find();
+
+db.students.find().pretty();
+
+db.students.find({age:34});
+
+
+db.students.findOne({age:34});
+
+db.students.update({age:34},{$set:{city:'Pune'}});
+
+
+db.students.update({age:34},{$set:{city:'Mumbai'}},{multi:true});
+
+db.students.update({age:35},{$set:{city:'Mumbai',name:'Pradeep'}},{upsert:true});
+
+db.students.remove({age:35});
+
+
+
+Mongo DB dependency
+====================
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+
+
+application.properties
+===========================
+
+
+spring.data.mongodb.database=company
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+#spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. 
+
+
+============================
+Swagger
+============================
+
+Swagger2 is an open source project used to generate the REST API documents for
+RESTful web services. It provides a user interface to access our RESTful web 
+services via the web browser.
+
+To enable the Swagger2 in Spring Boot application, you need to add the
+following dependencies in our build configurations file.
+
+<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+<dependency>
+   <groupId>io.springfox</groupId>
+   <artifactId>springfox-swagger2</artifactId>
+   <version>2.7.0</version>
+</dependency>
+<dependency>
+   <groupId>io.springfox</groupId>
+   <artifactId>springfox-swagger-ui</artifactId>
+   <version>2.7.0</version>
+</dependency>
+
+
+Now, add the @EnableSwagger2 annotation in your main Spring Boot application. The @EnableSwagger2 annotation is used to enable the Swagger2 for your Spring Boot application.
+
+The code for main Spring Boot application is shown below −
+
+package com.swaggerdemo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@SpringBootApplication
+@EnableSwagger2
+public class SwaggerDemoApplication {
+   public static void main(String[] args) {
+      SpringApplication.run(SwaggerDemoApplication.class, args);
+   }
+}
+
+Next, create Docket Bean to configure Swagger2 for your Spring Boot application.
+We need to define the base package to configure REST API(s) for Swagger2.
+
+@Bean
+   public Docket productApi() {
+      return new Docket(DocumentationType.SWAGGER_2).select()
+         .apis(RequestHandlerSelectors.basePackage("com.swaggerdemo")).build();
+   }
+
+   
+   http://localhost:8888/ems-web-mvc/swagger-ui.html
+   
+
+Spring Boot Security
+========================
+
+JAAS (Java Authentication and Authorization Service)
+===================================================
+1.Authentication
+
+    a) Basic   (Spring boot 1.5)
+	b) Digest
+    c) Form based  (Spring Boot 2.x)
+	
+2.Authorization
+
+
+
+
+
+<!-- spring boot security -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+Default username  :user
+Default Password  :generated on console.
+
+To change default username and password add belo properties in application.properties
+=========================================================================================
+
+spring.security.user.name=pradeep
+spring.security.user.password=pradeep
+
+
+
+/hello        STUDENT
+/today        STUDENT 
+/welcome/today STUDENT 
+
+/spring/semployees   =>spring/*  =>ADMIN
+
+/rest/employees      =>rest/*    =>FACULTY,STUDENT
+
+
+
+
+Authentication
+===============
+1.Basic   (Spring Boot 1.5  Default )
+2.Digest
+3.Form   (Spring Boot 2.x  Default )
+
+Authetication  :401
+Authorization  :403
+
+1.InMemory  
+2.Database (USERS,AUTHORITIES)
+
+1.Oauth Security
+
+Add dependency
+=============
+<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure -->
+		<dependency>
+			<groupId>org.springframework.security.oauth.boot</groupId>
+			<artifactId>spring-security-oauth2-autoconfigure</artifactId>
+			<version>2.1.4.RELEASE</version>
+</dependency>
+
+
+
+@EnableWebSecurity
+@Configuration
+@EnableOAuth2Sso
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+}
+
+
+Put below properties in application.yml
+==========================================
+security:
+  oauth2:
+    client:
+      client-id: 257327233733-66p4oii8ultgdr1800vkoepvmbkrjk4i.apps.googleusercontent.com
+      client-secret: D7KCJKTpFQrZcANANkmW4Qbd
+      access-token-uri: https://www.googleapis.com/oauth2/v3/token
+      user-authorization-uri: https://accounts.google.com/o/oauth2/auth
+      token-name: oauth_token
+      authenticationScheme: query
+      client-authentication-scheme: form
+      scope: email profile
+        
+    resource:
+      user-info-uri: https://www.googleapis.com/userinfo/v2/me
+      prefer-token-info:  false
+    
+
+	To Create a  client-id and client-secret
+	
+	1.create a account in google cloud 
+	2.refer below video
+	
+
+
+2.JDBC Authentivation
+3.GIT
+
+
+
+
+
+
+ 
+ 
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+     
+
+
+
+
+
+
+
+
+ 
