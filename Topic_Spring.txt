@@ -1,0 +1,130 @@
+Spring 
+
+framework-- set of functionality 
+
+shopping -- MALL shopping,eat,atm,b
+
+MVC ---model ,view ,controller
+login page view, jdbc code , controller
+view --conytoller -- model.
+
+opensource
+lightweight ---class POJO , 
+moduler  --- 
+unit testing based , 
+loosely coupled 
+IOC & DI-- IOC , DI 
+
+
+
+class Address
+{
+city,st,cntry;
+pincode;
+}
+class Employee
+{
+eid,name;
+Address a;
+}
+class EmpServices
+{
+Emp e1();
+addEmp()
+updateEmp()
+delEmp()
+searchEmp()
+}
+class Atos
+{
+EmpServices e;
+}
+
+spring --- dont create new operator, container 
+configuartion XML , annotations.
+
+IOC , DI
+whom DI??
+primitive datatypes & String
+dependent obj
+collection
+
+how ??
+constr
+setter 
+ingterface
+
+configuration 
+XML
+annotations
+
+IOC container 
+Bean 
+constr
+setter 
+business method
+
+lazy 
+eager
+generic
+
+scope 
+
+primitive datatype& string
+dependent object
+collection
+
+contructor
+
+refernce autowiring
+no
+byname
+bytype
+bycons
+
+
+DI
+constr
+setter
+
+init
+business method
+destroy 
+
+
+life cycle of Spring
+
+4 ways 
+customi  init ,destroy 
+interfaces  IntiliB,Dispo
+annotation @PostCon @PreDe
+
+Annotation
+annotation 
+
+@Component  class ---- xml 
+@Repository class
+@Service ---  class
+@Autowire
+@Qualifier
+@Controller
+@Configuration
+@Bean
+
+
+xml
+annotation
+java class
+
+
+
+employee
+
+
+
+
+
+
+
+
+
